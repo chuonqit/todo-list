@@ -5,6 +5,8 @@ import {
   selectTodo,
   clearSelectTodo,
   updateTodo,
+  updateTodoStatus,
+  deleteTodo,
 } from './todoReducer';
 
 export const getTodo = createSelector(todoSelector, (state) => state.todos);
@@ -25,4 +27,6 @@ export const mapDispatchToProps = {
   selectTodo,
   updateTodo,
   clearSelectTodo,
+  updateTodoStatus,
+  deleteTodo,
 };

@@ -2,13 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   status: 'idle',
-  todos: [
-    {
-      id: 1,
-      name: 'Todo 1',
-      status: 'pending',
-    },
-  ],
+  todos: [],
   todoSelected: null,
 };
 
@@ -46,6 +40,25 @@ const todoReducer = createSlice({
         todo.id === action.payload.id ? action.payload : todo,
       );
     },
+    updateTodoStatus: (state) => {
+      state.status = 'loading';
+    },
+    updateTodoStatusSuccess: (state, action) => {
+      state.status = 'idle';
+      state.todos = state.todos.map((todo) =>
+        todo.id === action.payload.id
+          ? { ...todo, status: action.payload.status }
+          : todo,
+      );
+    },
+    deleteTodo: (state) => {
+      state.status = 'loading';
+    },
+    deleteTodoSuccess: (state, action) => {
+      state.status = 'idle';
+      const filtered = state.todos.filter((todo) => todo.id !== action.payload);
+      state.todos = filtered;
+    },
   },
 });
 
@@ -60,6 +73,10 @@ export const {
   clearSelectTodoSuccess,
   updateTodo,
   updateTodoSuccess,
+  updateTodoStatus,
+  updateTodoStatusSuccess,
+  deleteTodo,
+  deleteTodoSuccess,
 } = todoReducer.actions;
 
 export default todoReducer.reducer;

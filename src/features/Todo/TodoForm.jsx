@@ -26,6 +26,8 @@ const TodoForm = ({
   React.useEffect(() => {
     if (todoSelected) {
       setValue('name', todoSelected.name);
+    } else {
+      reset();
     }
   }, [todoSelected]);
 
@@ -37,7 +39,7 @@ const TodoForm = ({
       clearSelectTodo();
     } else {
       values.id = todos.length + 1;
-      values.status = 'sucess';
+      values.status = 'pending';
       setTodo(values);
     }
     reset();

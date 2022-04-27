@@ -4,9 +4,9 @@ const Space = styled.div`
   gap: 8px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   width: 100%;
 
+  justify-content: space-between;
   @media screen and (max-width: 768px) {
     flex-direction: column;
   }

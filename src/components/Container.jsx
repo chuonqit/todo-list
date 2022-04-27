@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-  min-height: 100vh;
-  min-width: 100vw;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 10vh;
   align-items: center;
   flex-direction: column;
   @media screen and (max-width: 768px) {
